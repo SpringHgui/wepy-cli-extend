@@ -1,7 +1,7 @@
 {
   "name": "wepy-cli-extend",
   "version": "1.0.0",
-  "description": "dd",
+  "description": "wepy-cli 2 插件，解决部分官方不解决的bug或小程序新特性",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
