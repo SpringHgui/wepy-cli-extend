@@ -1,4 +1,8 @@
 # wepy-cli-extend
+[![npm](https://img.shields.io/npm/v/wepy-cli-extend)](https://www.npmjs.com/package/wepy-cli-extend)
+![NPM](https://img.shields.io/npm/l/wepy-cli-extend)
+[![npm](https://img.shields.io/npm/dy/wepy-cli-extend)](https://www.npmjs.com/package/wepy-cli-extend)
+
 wepy-cli 2 插件，解决部分官方不解决的bug或小程序新特性
 
 # 安装
