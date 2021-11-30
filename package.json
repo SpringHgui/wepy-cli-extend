@@ -1,0 +1,22 @@
+{
+  "name": "wepy-cli-extend",
+  "version": "1.0.0",
+  "description": "dd",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpringHgui/wepy-cli-extend.git"
+  },
+  "keywords": [
+    "wepy"
+  ],
+  "author": "gui.h",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SpringHgui/wepy-cli-extend/issues"
+  },
+  "homepage": "https://github.com/SpringHgui/wepy-cli-extend#readme"
+}
