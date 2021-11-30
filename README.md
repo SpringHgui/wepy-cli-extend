@@ -1,9 +1,29 @@
 # wepy-cli-extend
 wepy-cli 2 插件，解决部分官方不解决的bug或小程序新特性
 
-### 支持useExtendedLib导入weui
- 使用方式
+# 安装
 ```
+npm i wepy-cli-extend --save-dev
+```
+
+# 配置
+
+在项目根目录`wepy.config.js`文件添加如下
+```
+const cliExt = require('wepy-cli-extend');
+
+module.exports = {
+  plugins: [
+    cliExt()
+  ]
+}
+
+
+## 支持的功能如下
+### 1.支持useExtendedLib导入weui
+使用方式,如`index.wpy`文件的 config节点配置如下
+```
+<config>
 {
     navigationBarTitleText: 'WePY 2.0 Feature Demo',
     usingComponents: {
@@ -15,8 +35,9 @@ wepy-cli 2 插件，解决部分官方不解决的bug或小程序新特性
         "mp-msg": "raw:weui-miniprogram/msg/msg"
     }
 }
+</config>
 ```
-编译后的结果为
+编译后的结果为 `index.json` 文件内容如下
 ```
 {
     "navigationBarTitleText": "WePY 2.0 Feature Demo",
