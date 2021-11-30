@@ -17,12 +17,12 @@ module.exports = {
     cliExt()
   ]
 }
-
+```
 
 ## 支持的功能如下
 ### 1.支持useExtendedLib导入weui
 使用方式,如`index.wpy`文件的 config节点配置如下
-```
+```xml
 <config>
 {
     navigationBarTitleText: 'WePY 2.0 Feature Demo',
