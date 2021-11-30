@@ -2,6 +2,8 @@ const path = require('path');
 const loaderUtils = require('loader-utils');
 const slash = require('slash');
 
+let appUsingComponents = null;
+
 exports = module.exports = function () {
   this.register('wepy-parser-config', function (rst, ctx) {
     // If file is not changed, then use cache.
@@ -132,6 +134,44 @@ exports = module.exports = function () {
         components: parseComponents
       };
       return true;
+    });
+  });
+
+  // raw and plugin do nothing
+  // eslint-disable-next-line
+  this.register('wepy-parser-config-component-raw', function (name, prefix, source, target, ctx) {
+    return Promise.resolve({
+      name,
+      prefix
+    });
+  });
+
+  this.register('wepy-parser-config-component-module', function (name, prefix, source, target, ctx) {
+    let contextDir = path.dirname(ctx.file);
+    return this.resolvers.normal.resolve({}, contextDir, source, {}).then(resolved => {
+      return {
+        name: name,
+        prefix: prefix,
+        resolved: resolved,
+        target: this.getModuleTarget(resolved.path, this.options.src),
+        npm: resolved.meta.descriptionFileRoot !== this.context
+      };
+    });
+  });
+
+  this.register('wepy-parser-config-component-path', function (name, prefix, source, target, ctx) {
+    const moduleRequest = loaderUtils.urlToRequest(source, source.charAt(0) === '/' ? '' : null);
+
+    let contextDir = path.dirname(ctx.file);
+
+    return this.resolvers.normal.resolve({}, contextDir, moduleRequest, {}).then(resolved => {
+      return {
+        name: name,
+        prefix: prefix,
+        resolved: resolved,
+        target: resolved.path,
+        npm: resolved.meta.descriptionFileRoot !== this.context
+      };
     });
   });
 };
